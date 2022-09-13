@@ -1,0 +1,20 @@
+@import "../abstracts/variables";
+
+.header-nav {
+  width: 100%;
+  z-index: 2;
+  background: $navbarBackground;
+
+  a,
+  a.nav-link {
+    color: $navbarColor;
+    &.active {
+      color: $secondaryColor;
+    }
+  }
+  .navbar-brand {
+    color: $secondaryColor;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+}
