@@ -26,7 +26,8 @@ import {
 //     })
 // }
 
-export function getDonations () {
+export function getDonations() {
+    console.log('heelo getDonations');
     return _getDonations();
 }
 
