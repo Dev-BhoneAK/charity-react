@@ -14,9 +14,9 @@ const CustomNav = () => {
                 <Navbar.Collapse id="basic-navbar-nav" className="flex-grow-0">
                     <Nav className="me-auto">
                         <Nav.Link href="/" className="nav-link">Home</Nav.Link>
-                        <Nav.Link href="donate" className="nav-link">Donate</Nav.Link>
-                        <Nav.Link href="events" className="nav-link">Events</Nav.Link>
-                        <Nav.Link href="blogs" className="nav-link">Blogs</Nav.Link>
+                        <Nav.Link href="/donations" className="nav-link">Donations</Nav.Link>
+                        <Nav.Link href="/events" className="nav-link">Events</Nav.Link>
+                        <Nav.Link href="/articles" className="nav-link">Articles</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './scss/main.scss';
+import "animate.css/animate.min.css";
+import './css/animated-counter-prograssbar.css';
 
 import {Provider} from "react-redux";
 import {createStore} from "redux";
