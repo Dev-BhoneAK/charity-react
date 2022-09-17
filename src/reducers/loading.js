@@ -1,17 +1,11 @@
 import {SHOW_LOADING, HIDE_LOADING} from "../actions/loading";
 
-const loading = (state = {loading: true}, action) => {
+const loading = (state = true, action) => {
     switch (action.type) {
         case SHOW_LOADING:
-            return {
-                ...state,
-                loading: true
-            }
+            return true;
         case HIDE_LOADING:
-            return {
-                ...state,
-                loading: false
-            }
+            return false;
         default:
             return state;
     }

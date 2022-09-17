@@ -1,11 +1,19 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {getDonationData} from '../actions/donations';
+import {connect} from "react-redux";
+import DonationSection from "../components/home/DonationSection";
 
-const Donate = () => {
+const Donate = ({dispatch, donations, loading}) => {
 
+    useEffect(() => {
+        dispatch(getDonationData());
+    }, []);
     return (
-        <div>
-            <h1>Donate</h1>
-        </div>
+        <>
+            <DonationSection donations={donations} loading={loading} totalcards={6}/>
+        </>
     )
 }
-export default Donate;
+
+const mapStateToProps = ({donations, loading}) => ({ donations, loading });
+export default connect(mapStateToProps)(Donate);

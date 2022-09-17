@@ -1,19 +1,19 @@
 import React, {useEffect} from 'react';
-import AOS from "aos";
-import {getDonationData} from "../actions/donations";
-import {getEventData} from "../actions/events";
 import {getArticleData} from "../actions/articles";
+import {connect} from "react-redux";
+import ArticleSection from "../components/home/ArticleSection";
 
-const Blogs = ({dispatch}) => {
+const Articles = ({dispatch, articles, loading}) => {
 
     useEffect(() => {
-        AOS.init({});
         dispatch(getArticleData());
     }, []);
     return (
-        <div>
-            <h1>Blogs</h1>
-        </div>
+        <>
+            <ArticleSection articles={articles} loading={loading} totalcards={6}/>
+        </>
     )
 }
-export default Blogs;
+
+const mapStateToProps = ({articles, loading}) => ({ articles, loading });
+export default connect(mapStateToProps)(Articles);
