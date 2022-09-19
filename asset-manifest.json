@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/charity-react/static/css/main.3dfb3979.css",
-    "main.js": "/charity-react/static/js/main.ce03d5ae.js",
+    "main.js": "/charity-react/static/js/main.3b41e811.js",
     "static/media/footer.jpg": "/charity-react/static/media/footer.cbfea6f72c25d9c97f78.jpg",
     "static/media/support.jpg": "/charity-react/static/media/support.18b5966294fc595e551b.jpg",
     "static/media/404.jpeg": "/charity-react/static/media/404.6ae9bef72fd854ec2be7.jpeg",
@@ -11,10 +11,10 @@
     "static/media/slick.woff": "/charity-react/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/charity-react/index.html",
     "main.3dfb3979.css.map": "/charity-react/static/css/main.3dfb3979.css.map",
-    "main.ce03d5ae.js.map": "/charity-react/static/js/main.ce03d5ae.js.map"
+    "main.3b41e811.js.map": "/charity-react/static/js/main.3b41e811.js.map"
   },
   "entrypoints": [
     "static/css/main.3dfb3979.css",
-    "static/js/main.ce03d5ae.js"
+    "static/js/main.3b41e811.js"
   ]
 }
