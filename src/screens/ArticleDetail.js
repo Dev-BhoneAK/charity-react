@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useEffect } from "@types/react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { getArticleData } from "../actions/articles";
 import SocialIconsContainer from "../components/common/SocialIconsContainer";
 
@@ -14,7 +14,24 @@ const withRouter = (Component) => {
   return ComponentWithRouterProp;
 };
 
-const ArticleDetail = ({ dispatch, article, latestArticles, loading }) => {
+const LatestArticleList = ({ article }) => {
+  return (
+    <Link to={`/articles/${article.id}`} style={{ textDecoration: "none" }}>
+      <li className="latest-blog-list d-flex align-items-center">
+        <img src={article.imageDetail} alt="Article Image" className="me-2" />
+        <p className="latest-blog-title">{article.title}</p>
+      </li>
+    </Link>
+  );
+};
+
+const ArticleDetail = ({
+  dispatch,
+  article,
+  articles,
+  latestArticlesIndex,
+  loading,
+}) => {
   useEffect(() => {
     dispatch(getArticleData());
   }, []);
@@ -30,7 +47,7 @@ const ArticleDetail = ({ dispatch, article, latestArticles, loading }) => {
       <section id="donate">
         <div className="container my-5">
           <div className="row">
-            <div className="col-md-8">
+            <div className="col-md-7 col-lg-8">
               <div className="card-container mb-5">
                 <div className="img-container position-relative">
                   <img
@@ -49,45 +66,18 @@ const ArticleDetail = ({ dispatch, article, latestArticles, loading }) => {
                 <p className="mid-grey">{article.content}</p>
               </div>
             </div>
-            <div className="col-md-4">
+            <div className="col-md-5 col-lg-4">
               <div className="info-card-container d-flex align-items-center justify-content-center mb-3 px-2 pt-4 pb-2">
                 <div className="d-flex flex-column align-items-center justify-content-center">
-                  <h4 className="mb-4">Latest Blogs</h4>
+                  <h4 className="mb-4">Latest Articles</h4>
                   <ul className="info-card-content">
-                    <li className="latest-blog-list d-flex align-items-center">
-                      <img
-                        src="/assets/images/panda-donation.jpg"
-                        alt="Panda Image"
-                        className="me-2"
-                      />
-                      <p className="latest-blog-title">
-                        Save Endangered Species, Giant Pandas
-                      </p>
-                    </li>
-                    <li className="latest-blog-list d-flex align-items-center">
-                      <img
-                        src="/assets/images/rhinos-donation.jpg"
-                        alt="Rhino Image"
-                        className="me-2"
-                      />
-                      <p className="latest-blog-title">
-                        Save Endangered Species, Royal Rhinos
-                      </p>
-                    </li>
-                    <li className="latest-blog-list d-flex align-items-center">
-                      <img
-                        src="/assets/images/polar-bear-donation.jpg"
-                        alt="Polar Bear Image"
-                        className="me-2"
-                      />
-                      <p className="latest-blog-title">
-                        Save Endangered Species, Polar Bears
-                      </p>
-                    </li>
+                    {latestArticlesIndex.map((index) => (
+                      <LatestArticleList article={articles[index]} />
+                    ))}
                   </ul>
                 </div>
               </div>
-              <SocialIconsContainer />
+              <SocialIconsContainer page="Articles" />
             </div>
           </div>
         </div>
@@ -101,11 +91,12 @@ const mapStateToProps = ({ articles, loading }, props) => {
     (articleIndex) => articles[articleIndex].id == article_id
   );
   return {
-    latestArticles: Object.keys(articles)
+    latestArticlesIndex: Object.keys(articles)
       .sort((a, b) => articles[b].id - articles[a].id)
       .splice(3),
     article: articles[articleIndex],
     loading,
+    articles,
   };
 };
 export default withRouter(connect(mapStateToProps)(ArticleDetail));
