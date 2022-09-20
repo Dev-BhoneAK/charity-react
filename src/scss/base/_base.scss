@@ -37,10 +37,18 @@ i {
   color: $secondaryColor;
 }
 
+a {
+  color: $black;
+}
+
 .mid-grey {
   color: $mid-grey;
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
   color: $primaryTextColor;
+}
+
+.progress-bar-color {
+  background-color: $secondaryColor;
 }
