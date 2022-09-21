@@ -8,7 +8,10 @@ const DonationCard = ({ donation }) => {
 
   return (
     <div className="col-lg-4 col-md-12 mb-5">
-      <Link to={`/donations/${donation.id}`} style={{ textDecoration: "none" }}>
+      <Link
+        to={`/donations/${donation._id}`}
+        style={{ textDecoration: "none" }}
+      >
         <ScrollAnimation
           animateIn="flipInX"
           afterAnimatedIn={() =>

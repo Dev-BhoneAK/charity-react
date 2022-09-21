@@ -100,7 +100,7 @@ const EventDetail = ({ dispatch, event, loading }) => {
 const mapStateToProps = ({ events, loading }, props) => {
   const { event_id } = props.router.params;
   const eventIndex = Object.keys(events).filter(
-    (eventIdex) => events[eventIdex].id == event_id
+    (eventIdex) => events[eventIdex]._id === event_id
   );
   console.log("event id", event_id);
   return {

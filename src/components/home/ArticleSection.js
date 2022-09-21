@@ -16,7 +16,7 @@ const ArticleCard = ({ article }) => {
           <p>{article.content.slice(0, 70)}...</p>
           <hr />
           <Link
-            to={`/articles/${article.id}`}
+            to={`/articles/${article._id}`}
             style={{ textDecoration: "none" }}
           >
             <div className="read-more d-flex align-items-center justify-content-between">

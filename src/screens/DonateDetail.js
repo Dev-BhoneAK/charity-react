@@ -162,7 +162,7 @@ const DonateDetail = ({ donation, loading, dispatch }) => {
 const mapStateToProps = ({ donations, loading }, props) => {
   const { donation_id } = props.router.params;
   const donationIndex = Object.keys(donations).filter(
-    (donationIndex) => donations[donationIndex].id == donation_id
+    (donationIndex) => donations[donationIndex]._id == donation_id
   );
   const donation = donations[donationIndex];
   return {

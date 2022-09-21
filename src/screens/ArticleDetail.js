@@ -16,7 +16,7 @@ const withRouter = (Component) => {
 
 const LatestArticleList = ({ article }) => {
   return (
-    <Link to={`/articles/${article.id}`} style={{ textDecoration: "none" }}>
+    <Link to={`/articles/${article._id}`} style={{ textDecoration: "none" }}>
       <li className="latest-blog-list d-flex align-items-center">
         <img src={article.imageDetail} alt="Article Image" className="me-2" />
         <p className="latest-blog-title">{article.title}</p>
@@ -88,11 +88,11 @@ const ArticleDetail = ({
 const mapStateToProps = ({ articles, loading }, props) => {
   const { article_id } = props.router.params;
   const articleIndex = Object.keys(articles).filter(
-    (articleIndex) => articles[articleIndex].id == article_id
+    (articleIndex) => articles[articleIndex]._id === article_id
   );
   return {
     latestArticlesIndex: Object.keys(articles)
-      .sort((a, b) => articles[b].id - articles[a].id)
+      .sort((a, b) => articles[b].publishedDate - articles[a].publishedDate)
       .splice(3),
     article: articles[articleIndex],
     loading,

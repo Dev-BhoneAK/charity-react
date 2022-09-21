@@ -11,7 +11,7 @@ const EventCard = ({ event }) => {
 
   return (
     <div className="col-lg-4 col-md-12 mb-5">
-      <Link to={`/events/${event.id}`} style={{ textDecoration: "none" }}>
+      <Link to={`/events/${event._id}`} style={{ textDecoration: "none" }}>
         <div className="card-container">
           <div className="img-container position-relative">
             <img src={event?.image} alt={event?.title} />
